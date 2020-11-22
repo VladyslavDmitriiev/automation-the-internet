@@ -1,0 +1,14 @@
+# python virtual environment
+venv/
+
+# cache
+__pycache__
+.pytest_cache
+.vscode
+
+# logs
+geckodriver.log
+debug.log
+
+# local code testing
+test_sandbox.py
