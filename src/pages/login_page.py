@@ -13,8 +13,10 @@ class LoginPage(BasePage):
         self.driver = driver
 
     def _perform_login(self, form_inputs):
-        field = 0
-        for form_input in form_inputs:
-            self._type(self._all_login_form_fields[field], form_input)
-            field += 1
+        fields_len, inputs_len = len(self._all_login_form_fields), len(form_inputs)
+        assert fields_len == inputs_len
+        
+        for i in range(fields_len):
+            self._type(self._all_login_form_fields[i], form_inputs[i])
+
         self._click(self._button_login)
