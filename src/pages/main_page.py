@@ -1,5 +1,5 @@
-from pages.base_page import BasePage
+from src.pages.base_page import BasePage
 
 
 class MainPage(BasePage):
-    _url = "https://the-internet.herokuapp.com/"
+    pass

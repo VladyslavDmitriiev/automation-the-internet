@@ -1,5 +1,5 @@
-from pages.login_page import LoginPage
-from pages.secure_zone import SecureZone
+from src.pages.login_page import LoginPage
+from src.pages.secure_zone import SecureZone
 
 def test_login_page(driver):
     login_page = LoginPage(driver)
@@ -18,4 +18,4 @@ def test_login_page(driver):
     login_page.is_login_page()
     login_page.is_success_message()
     assert login_page.success_message_content() == "You logged out of the secure area!\n×"
-    input("Debug time...\n")
+    # input("Debug time...\n")

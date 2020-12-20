@@ -1,14 +1,19 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
+from src.tests import config
 
 
-class BasePage():
+class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
     def _visit(self, url):
-        self.driver.get(url)
+        if url.startswith("http"):
+            self.driver.get(url)
+        else:
+            print(config.baseurl + url)
+            self.driver.get(config.baseurl + url)
 
     def _find(self, locator):
         return self.driver.find_element(*locator)

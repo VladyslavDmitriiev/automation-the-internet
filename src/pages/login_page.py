@@ -1,8 +1,10 @@
-from pages.base_page import BasePage
+from src.pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+from src.tests import config
+
 
 class LoginPage(BasePage):
-    _url = "https://the-internet.herokuapp.com/login"
+    _url = "/login"
     _form_username = (By.ID, "username")
     _form_password = (By.ID, "password")
     _button_login = (By.CLASS_NAME, "fa-sign-in")
@@ -17,7 +19,7 @@ class LoginPage(BasePage):
         self._visit(self._url)
     
     def is_login_page(self):
-        return self.driver.current_url == self._url
+        return self.driver.current_url == config.baseurl + self._url
 
     def perform_login(self, form_inputs):
         fields_len, inputs_len = len(self._all_login_form_fields), len(form_inputs)

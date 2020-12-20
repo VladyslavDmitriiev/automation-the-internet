@@ -2,14 +2,17 @@ import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from src.tests import config
 
 def pytest_addoption(parser):
     parser.addoption("--browser_name", action="store", default="chrome", help="Choose browser: chrome or firefox")
+    parser.addoption("--baseurl", action="store", default="https://the-internet.herokuapp.com", help="base URL for the app")
 
 @pytest.fixture(scope="function")
 def driver(request):
     driver = None
-    browser_name = request.config.getoption("browser_name")
+    browser_name = request.config.getoption("--browser_name")
+    config.baseurl = request.config.getoption("--baseurl")
     if browser_name == "chrome":
         options = webdriver.ChromeOptions()
         options.add_argument("--ignore-ssl-errors=yes")
@@ -17,6 +20,7 @@ def driver(request):
         options.add_argument("start-maximized")
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         print(f"\nStart {browser_name} browser\n")
+        print(f"THE BASE URL: {config.baseurl}")
     
     # elif browser_name == "firefox":
     #     profile = webdriver.FirefoxProfile()

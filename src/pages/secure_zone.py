@@ -1,9 +1,10 @@
-from pages.base_page import BasePage
+from src.pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+from src.tests import config
 
 
 class SecureZone(BasePage):
-    _url = "https://the-internet.herokuapp.com/secure"
+    _url = "/secure"
     _success_message = (By.ID, "flash")
     _logout_button = (By.CLASS_NAME, "icon-signout")
 
@@ -14,7 +15,7 @@ class SecureZone(BasePage):
         self._visit(self._url)
 
     def is_secure_zone_page(self):
-        assert self.driver.current_url == self._url
+        assert self.driver.current_url == config.baseurl + self._url
 
     def is_success_message(self):
         return self._is_displayed(self._success_message)
