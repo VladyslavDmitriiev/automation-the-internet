@@ -18,6 +18,9 @@ class BasePage:
     def _find(self, locator):
         return self.driver.find_element(*locator)
 
+    def _find_all(self, locator):
+        return self.driver.find_elements(*locator)
+
     def _click(self, locator):
         self._find(locator).click()
 
@@ -30,6 +33,20 @@ class BasePage:
             try:
                 wait = WebDriverWait(self.driver, timeout)
                 wait.until(expected_conditions.visibility_of_element_located(locator))
+            except TimeoutException:
+                return False
+            return True
+        else:
+            try:
+                return self._find(locator).is_displayed()
+            except NoSuchElementException:
+                return False
+
+    def _is_all_elements_located(self, locator, timeout=0):
+        if timeout > 0:
+            try:
+                wait = WebDriverWait(self.driver, timeout)
+                wait.until(expected_conditions.presence_of_all_elements_located(locator))
             except TimeoutException:
                 return False
             return True
