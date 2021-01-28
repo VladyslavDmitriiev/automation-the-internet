@@ -1,5 +1,5 @@
 from src.pages.login_page import LoginPage
-from src.pages.secure_zone import SecureZone
+from src.pages.secure_zone import SecureZonePage
 
 def test_login_page(driver):
     login_page = LoginPage(driver)
@@ -7,7 +7,7 @@ def test_login_page(driver):
     assert login_page.is_login_page()
     login_page.perform_login(("tomsmith", "SuperSecretPassword!"))
 
-    secure_zone_page = SecureZone(login_page.driver)
+    secure_zone_page = SecureZonePage(login_page.driver)
     secure_zone_page.is_secure_zone_page()
     assert secure_zone_page.is_success_message()
     assert secure_zone_page.success_message_content() == "You logged into a secure area!\n×"

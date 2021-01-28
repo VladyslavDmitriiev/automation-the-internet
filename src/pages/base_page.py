@@ -10,9 +10,10 @@ class BasePage:
 
     def _visit(self, url):
         if url.startswith("http"):
+            print(f"Open page: {url}")
             self.driver.get(url)
         else:
-            print(config.baseurl + url)
+            print(f"Open page: {config.baseurl + url}")
             self.driver.get(config.baseurl + url)
 
     def _find(self, locator):

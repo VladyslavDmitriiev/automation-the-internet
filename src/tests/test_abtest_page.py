@@ -1,8 +1,8 @@
-from src.pages.abtest import AbTest
+from src.pages.abtest import AbTestPage
 
 
 def test_abtest_page(driver):
-    abtest_page = AbTest(driver)
+    abtest_page = AbTestPage(driver)
     abtest_page.visit_abtest_page()
     assert abtest_page.is_abtest_page()
     assert abtest_page.text_page_header() == "A/B Test Control" or "A/B Test Variation 1"

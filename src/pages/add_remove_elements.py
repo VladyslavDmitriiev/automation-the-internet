@@ -2,7 +2,7 @@ from src.pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 from src.tests import config
 
-class AddRemoveElements(BasePage):
+class AddRemoveElementsPage(BasePage):
     _url = "/add_remove_elements/"
     _add_element_button = (By.XPATH, "//*[@id='content']/div/button")
     _delete_button = (By.CSS_SELECTOR, ".added-manually")

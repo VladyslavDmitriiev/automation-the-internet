@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from src.tests import config
 
 
-class AbTest(BasePage):
+class AbTestPage(BasePage):
     _url = "/abtest"
     _page_header = (By.CSS_SELECTOR, ".example h3")
     _page_paragraph = (By.CSS_SELECTOR, ".example p")

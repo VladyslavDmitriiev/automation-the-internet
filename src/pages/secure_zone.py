@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from src.tests import config
 
 
-class SecureZone(BasePage):
+class SecureZonePage(BasePage):
     _url = "/secure"
     _success_message = (By.ID, "flash")
     _logout_button = (By.CLASS_NAME, "icon-signout")
