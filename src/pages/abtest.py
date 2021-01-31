@@ -9,7 +9,7 @@ class AbTestPage(BasePage):
     _page_paragraph = (By.CSS_SELECTOR, ".example p")
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def visit_abtest_page(self):
         self._visit(self._url)

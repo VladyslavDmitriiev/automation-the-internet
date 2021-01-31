@@ -13,7 +13,7 @@ class LoginPage(BasePage):
     _all_login_form_fields = (_form_username, _form_password)
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def visit_login_page(self):
         self._visit(self._url)

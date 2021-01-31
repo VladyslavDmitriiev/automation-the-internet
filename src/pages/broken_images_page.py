@@ -8,7 +8,7 @@ class BrokenImagesPage(BasePage):
     _images = (By.CSS_SELECTOR, "img")
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def visit_broken_images_page(self):
         self._visit(self._url)

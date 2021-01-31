@@ -10,6 +10,7 @@ __pycache__
 # logs
 geckodriver.log
 debug.log
+screenshots
 
 # local code testing
 test_sandbox.py

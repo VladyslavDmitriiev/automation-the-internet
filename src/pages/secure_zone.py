@@ -9,7 +9,7 @@ class SecureZonePage(BasePage):
     _logout_button = (By.CLASS_NAME, "icon-signout")
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def visit_secure_zone(self):
         self._visit(self._url)

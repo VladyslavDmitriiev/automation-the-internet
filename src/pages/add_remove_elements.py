@@ -8,7 +8,7 @@ class AddRemoveElementsPage(BasePage):
     _delete_button = (By.CSS_SELECTOR, ".added-manually")
 
     def __init__(self, driver):
-        self.driver = driver
+        super().__init__(driver)
 
     def visit_add_remove_elements_page(self):
         self._visit(self._url)
